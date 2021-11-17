@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Products {
     HashMap <String, Integer> map = new HashMap<>();
-    private void makeListOfProducts() {
+    public void makeListOfProducts() {
         map.put("Jablko", 25);
         map.put("Grozka", 20);
         map.put("Czekolada", 55);

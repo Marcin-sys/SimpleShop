@@ -1,4 +1,4 @@
-package factory;
+package Basket;
 
 public class AddNewProduct {
     public void addNewProduct(){
