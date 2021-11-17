@@ -5,11 +5,12 @@ import products.Products;
 import java.util.Scanner;
 
 public class Factory {
+
     public void chooseNumberFromMenu(){
         Scanner sc = new Scanner(System.in);
         int answer = sc.nextInt();
         if (answer==1){  //list of products
-            var list = new Products().showProductList();
+            new Products().showProductList();
         } if (answer==2){ // add new product
             new AddNewProduct().addNewProduct();
         } if (answer==3){ //remove product
