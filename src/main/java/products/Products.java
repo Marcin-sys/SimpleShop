@@ -15,4 +15,7 @@ public class Products {
         makeListOfProducts();
         System.out.println(map);
     }
+    public void getProduct(String nameOfProduct){
+//        HashMap product = map.get(nameOfProduct); TODO fix this
+    }
 }
