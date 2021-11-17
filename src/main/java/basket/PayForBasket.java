@@ -1,6 +1,6 @@
-package Basket;
+package basket;
 
-public class Basket {
+public class PayForBasket {
     public void showWhatInsideBasket(){
 
     }
