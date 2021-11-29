@@ -1,21 +1,29 @@
 package products;
 
-import java.util.*;
-
 public class Products {
-    HashMap <String, Integer> map = new HashMap<>();
-    public void makeListOfProducts() {
-        map.put("Jablko", 25);
-        map.put("Grozka", 20);
-        map.put("Czekolada", 55);
-        map.put("Ciastko", 120);
-        map.put("Mleko", 10);
+    private final Integer id;
+    private final float price;
+    private final String name;
+
+    public Products(final Integer productIdentifier, String productName, float productPrice) {
+        id = productIdentifier;
+        price = productPrice;
+        name = productName;
     }
-    public void showProductList(){
-        makeListOfProducts();
-        System.out.println(map);
+
+    public Integer getId() {
+        return id;
     }
-    public void getProduct(String nameOfProduct){
-//        HashMap product = map.get(nameOfProduct); TODO fix this
+
+    public String getName(){
+        return name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void print() {
+        System.out.println("Lp: "+id+" - Name of product: " + name +" - Price: "+ price + " PLN");
     }
 }
