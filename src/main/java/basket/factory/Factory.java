@@ -14,6 +14,8 @@ public class Factory {
     int choiceEntry = -1;
     ArrayList<Products> productsArrayList =  new ProductList().makeProductList();
     public Factory() {
+
+
     }
     public void chooseNumberFromMenu(){
         Scanner sc = new Scanner(System.in);
