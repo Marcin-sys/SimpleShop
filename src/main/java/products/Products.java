@@ -1,14 +1,18 @@
 package products;
 
 public class Products {
-    private final Integer id;
+
+    private final int id;
     private final float price;
     private final String name;
 
-    public Products(final Integer productIdentifier, String productName, float productPrice) {
-        id = productIdentifier;
-        price = productPrice;
-        name = productName;
+    public Products(int id, String name, float price) {
+        this.id = id;
+        this.price = price;
+        this.name = name;
+    }
+
+    public record Product(int id, String name, float price) {
     }
 
     public Integer getId() {
@@ -21,9 +25,5 @@ public class Products {
 
     public float getPrice() {
         return price;
-    }
-
-    public void print() {
-        System.out.println("Lp: "+id+" - Name of product: " + name +" - Price: "+ price + " PLN");
     }
 }
