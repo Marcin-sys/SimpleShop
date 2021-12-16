@@ -10,12 +10,15 @@ import products.Products;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class FactoryMenageShopping {
-    int choiceEntry = -1;
+
     ArrayList<Products> productsArrayList =  new ProductList().makeProductList();
     String menu = new Menu().MenuPrinter();
-    public FactoryMenageShopping() {}
+
     public void chooseNumberFromMenu(){
+        int choiceEntry = -1;
         try {
             Scanner sc = new Scanner(System.in);
             do {
@@ -26,7 +29,7 @@ public class FactoryMenageShopping {
                 choiceEntry = sc.nextInt();
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
-                        for (Products products : productsArrayList) products.print();
+                        for (Products products : productsArrayList) System.out.println(products.getName());
                         System.out.println("\nPlease choose number from menu again.");
                         System.out.println(menu);
                         break;
