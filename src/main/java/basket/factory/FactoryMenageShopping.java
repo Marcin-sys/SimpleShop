@@ -30,27 +30,22 @@ public class FactoryMenageShopping {
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
                         for (Products products : productsArrayList) System.out.println(products.getName());
-                        System.out.println("\nPlease choose number from menu again.");
                         System.out.println(menu);
                         break;
                     case 2:  //Add new product to basket
                         new AddNewProduct().addNewProductToBasket();
-                        System.out.println("\nPlease choose number from menu again.");
                         System.out.println(menu);
                         break;
                     case 3: //Remove product from basket
                         new RemoveProduct().removeProductFromBasket();
-                        System.out.println("\nPlease choose number from menu again.");
                         System.out.println(menu);
                         break;
                     case 4: //Check what is inside basket
                         new PayForBasket().showWhatInsideBasket();
-                        System.out.println("\nPlease choose number from menu again.");
                         System.out.println(menu);
                         break;
                     case 5: // Pay for all product inside basket
                         new PayForBasket().payForBasket();
-                        System.out.println("\nPlease choose number from menu again.");
                         System.out.println(menu);
                         break;
                     case 6:  //End shopping

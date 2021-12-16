@@ -2,11 +2,13 @@ package menu;
 
 public class Menu {
     public String MenuPrinter(){
-        return "1. Check all product's" +
-                "\n2. Add new product to basket" +
-                "\n3. Remove product from basket" +
-                "\n4. Check what is inside basket" +
-                "\n5. Pay for all product inside basket"+
-                "\n6. End shopping";
+        return """
+                Please choose number from menu again.
+                1. Check all product's
+                2. Add new product to basket
+                3. Remove product from basket
+                4. Check what is inside basket
+                5. Pay for all product inside basket
+                6. End shopping""";
     }
 }
