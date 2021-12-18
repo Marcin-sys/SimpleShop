@@ -1,7 +1,7 @@
 package basket;
 
 public class AddNewProduct {
-    public void addNewProductToBasket(){
+    public void addNewProductToBasket() {
 
     }
 }

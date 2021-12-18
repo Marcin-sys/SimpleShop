@@ -11,13 +11,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 public class FactoryMenageShopping {
 
-    ArrayList<Products> productsArrayList =  new ProductList().makeProductList();
-    String menu = new Menu().MenuPrinter();
+    ArrayList<Products> productsArrayList = new ProductList().makeProductList();
+    String menu = new Menu().returnMenuListInString();
 
-    public void chooseNumberFromMenu(){
+    public void chooseNumberFromMenu() {
         int choiceEntry = -1;
         try {
             Scanner sc = new Scanner(System.in);
