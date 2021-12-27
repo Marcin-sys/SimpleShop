@@ -8,18 +8,24 @@ import products.ProductList;
 import products.Products;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
-public class FactoryMenageShopping {
+public class ShopManager {
 
-    ArrayList<Products> productsArrayList = new ProductList().makeProductList();
+    List<Products> productsArrayList = new ProductList().makeProductList();
     String menu = new Menu().returnMenuListInString();
+//    new AddNewProduct().addNewProductToBasket();
+//    new RemoveProduct().removeProductFromBasket();
+//    new PayForBasket().showWhatInsideBasket();
+//    new PayForBasket().payForBasket();
 
     public void chooseNumberFromMenu() {
         int choiceEntry = -1;
         try {
             Scanner sc = new Scanner(System.in);
+            System.out.println(menu);
             do {
                 while (!sc.hasNextInt()) {
                     System.out.println("Invalid value!, must be number between 1 and 6.");
@@ -28,7 +34,9 @@ public class FactoryMenageShopping {
                 choiceEntry = sc.nextInt();
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
-                        for (Products products : productsArrayList) System.out.println(products.getName());
+                        for (Products products : productsArrayList) System.out.println(products.name()
+                                +" price: "+ products.price());
+
                         System.out.println(menu);
                         break;
                     case 2:  //Add new product to basket
