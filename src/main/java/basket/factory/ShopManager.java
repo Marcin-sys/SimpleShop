@@ -3,14 +3,14 @@ package basket.factory;
 import basket.Basket;
 import menu.Menu;
 import products.ProductList;
-import products.Products;
+import products.Product;
 
 import java.util.List;
 import java.util.Scanner;
 
 
 public class ShopManager {
-    List<Products> listOfProducts = new ProductList().makeProductList();
+    List<Product> listOfProducts = new ProductList().makeProductList();
     String menu = new Menu().printMainMenu();
     Basket basket = new Basket();
     int productId;
@@ -25,9 +25,9 @@ public class ShopManager {
                 choiceEntry = getValidIntInput(1,6,sc); //min and max case
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
-                        for (Products products : listOfProducts)
-                            System.out.println("ID " + products.id() + " name:" + products.name()
-                                    + " price: " + products.price());
+                        for (Product product : listOfProducts)
+                            System.out.println("ID " + product.id() + " name:" + product.name()
+                                    + " price: " + product.price());
                         System.out.println(menu);
                         break;
                     case 2:  //Add new product to basket
