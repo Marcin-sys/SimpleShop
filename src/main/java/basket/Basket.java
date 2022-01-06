@@ -15,15 +15,18 @@ public class Basket {
     public void addNewItemToBasket(int idProduct) {
         basketList.add(listOfProducts.get(idProduct));
     }
-    public void removeProductFromBasket(int idProduct){
+
+    public void removeProductFromBasket(int idProduct) {
         basketList.remove(listOfProducts.get(idProduct));
     }
-    public void showWhatInsideBasket(){
+
+    public void showWhatInsideBasket() {
         for (Products products : basketList) {
             System.out.println(products.name());
         }
     }
-    public void payForBasket(){
+
+    public void payForBasket() {
         int sumBasketPrice = 0;
         for (Products products : basketList) {
             sumBasketPrice += products.price();

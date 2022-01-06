@@ -1,14 +1,10 @@
 package basket.factory;
 
-import basket.AddNewProduct;
 import basket.Basket;
-import basket.PayForBasket;
-import basket.RemoveProduct;
 import menu.Menu;
 import products.ProductList;
 import products.Products;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,8 +28,9 @@ public class ShopManager {
                 choiceEntry = sc.nextInt();
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
-                        for (Products products : listOfProducts) System.out.println("ID " + products.id() +" name:" + products.name()
-                                +" price: "+ products.price());
+                        for (Products products : listOfProducts)
+                            System.out.println("ID " + products.id() + " name:" + products.name()
+                                    + " price: " + products.price());
                         System.out.println(menu);
                         break;
                     case 2:  //Add new product to basket
