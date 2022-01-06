@@ -16,17 +16,13 @@ public class ShopManager {
     int productId;
     int productListSize = listOfProducts.size() - 1;
 
-    public void chooseNumberFromMenu() {
+    public void shopManagerMenu() {
         int choiceEntry = -1;
         try {
             Scanner sc = new Scanner(System.in);
             System.out.println(menu);
             do {
-                while (!sc.hasNextInt()) {
-                    System.out.println("Invalid value!, must be number between 1 and 6.");
-                    sc.next();
-                }
-                choiceEntry = sc.nextInt();
+                choiceEntry = getValidIntInput(1,6,sc); //min and max case
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
                         for (Products products : listOfProducts)
@@ -36,22 +32,14 @@ public class ShopManager {
                         break;
                     case 2:  //Add new product to basket
                         System.out.println("Choose product id to be added to basket");
-                        while (!sc.hasNextInt() || sc.nextInt()>productListSize) {
-                            System.out.println("Invalid value!, must be number between 0 and " + productListSize);
-                            sc.next();
-                        }
-                        productId = sc.nextInt();
+                        productId = getValidIntInput(0, productListSize, sc);
                         basket.addNewItemToBasket(productId);
                         System.out.println(menu);
                         break;
 
                     case 3: //Remove product from basket
                         System.out.println("Choose product id to be removed from basket");
-                        while (!sc.hasNextInt() && sc.nextInt()>productListSize) {
-                            System.out.println("Invalid value!, must be number between 0 and " + productListSize);
-                            sc.next();
-                        }
-                        productId = sc.nextInt();
+                        productId = getValidIntInput(0, productListSize, sc);
                         basket.removeProductFromBasket(productId);
                         System.out.println(menu);
                         break;
@@ -72,5 +60,20 @@ public class ShopManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private int getValidIntInput(int min, int max, Scanner scanner) {
+        Integer result = null;
+        do {
+            if (result != null) {
+                System.out.println("Invalid value, must be an integer value between " + min + " and " + max);
+            }
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid value, must be an integer value between " + min + " and " + max);
+                scanner.next();
+            }
+            result = scanner.nextInt();
+        } while (result < min || result > max);
+        return result;
     }
 }
