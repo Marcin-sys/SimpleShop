@@ -1,6 +1,7 @@
 package basket.factory;
 
 import basket.AddNewProduct;
+import basket.Basket;
 import basket.PayForBasket;
 import basket.RemoveProduct;
 import menu.Menu;
@@ -13,13 +14,10 @@ import java.util.Scanner;
 
 
 public class ShopManager {
-
-    List<Products> productsArrayList = new ProductList().makeProductList();
+    List<Products> listOfProducts = new ProductList().makeProductList();
     String menu = new Menu().returnMenuListInString();
-//    new AddNewProduct().addNewProductToBasket();
-//    new RemoveProduct().removeProductFromBasket();
-//    new PayForBasket().showWhatInsideBasket();
-//    new PayForBasket().payForBasket();
+    Basket basket = new Basket();
+    int productId;
 
     public void chooseNumberFromMenu() {
         int choiceEntry = -1;
@@ -34,25 +32,28 @@ public class ShopManager {
                 choiceEntry = sc.nextInt();
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
-                        for (Products products : productsArrayList) System.out.println(products.name()
+                        for (Products products : listOfProducts) System.out.println("ID " + products.id() +" name:" + products.name()
                                 +" price: "+ products.price());
-
                         System.out.println(menu);
                         break;
                     case 2:  //Add new product to basket
-                        new AddNewProduct().addNewProductToBasket();
+                        System.out.println("Choose product id to be added to basket");
+                        productId = sc.nextInt();
+                        basket.addNewItemToBasket(productId);
                         System.out.println(menu);
                         break;
                     case 3: //Remove product from basket
-                        new RemoveProduct().removeProductFromBasket();
+                        System.out.println("Choose product id to be added to basket");
+                        productId = sc.nextInt();
+                        basket.removeProductFromBasket(productId);
                         System.out.println(menu);
                         break;
                     case 4: //Check what is inside basket
-                        new PayForBasket().showWhatInsideBasket();
+                        basket.showWhatInsideBasket();
                         System.out.println(menu);
                         break;
                     case 5: // Pay for all product inside basket
-                        new PayForBasket().payForBasket();
+                        basket.payForBasket();
                         System.out.println(menu);
                         break;
                     case 6:  //End shopping
