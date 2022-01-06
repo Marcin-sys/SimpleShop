@@ -14,6 +14,7 @@ public class ShopManager {
     String menu = new Menu().returnMenuListInString();
     Basket basket = new Basket();
     int productId;
+    int productListSize = listOfProducts.size() - 1;
 
     public void chooseNumberFromMenu() {
         int choiceEntry = -1;
@@ -35,12 +36,21 @@ public class ShopManager {
                         break;
                     case 2:  //Add new product to basket
                         System.out.println("Choose product id to be added to basket");
+                        while (!sc.hasNextInt() || sc.nextInt()>productListSize) {
+                            System.out.println("Invalid value!, must be number between 0 and " + productListSize);
+                            sc.next();
+                        }
                         productId = sc.nextInt();
                         basket.addNewItemToBasket(productId);
                         System.out.println(menu);
                         break;
+
                     case 3: //Remove product from basket
-                        System.out.println("Choose product id to be added to basket");
+                        System.out.println("Choose product id to be removed from basket");
+                        while (!sc.hasNextInt() && sc.nextInt()>productListSize) {
+                            System.out.println("Invalid value!, must be number between 0 and " + productListSize);
+                            sc.next();
+                        }
                         productId = sc.nextInt();
                         basket.removeProductFromBasket(productId);
                         System.out.println(menu);
