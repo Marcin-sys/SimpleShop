@@ -31,6 +31,7 @@ public class Basket {
         for (Products products : basketList) {
             sumBasketPrice += products.price();
         }
-        System.out.println("Total price is:" + sumBasketPrice);
+        System.out.println("Total price is: "
+                + sumBasketPrice + " PLN");
     }
 }

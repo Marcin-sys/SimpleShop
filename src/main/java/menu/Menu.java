@@ -1,7 +1,7 @@
 package menu;
 
 public class Menu {
-    public String returnMenuListInString(){
+    public String printMainMenu(){
         return """
                 Please choose number from menu again.
                 1. Check all product's

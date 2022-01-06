@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ShopManager {
     List<Products> listOfProducts = new ProductList().makeProductList();
-    String menu = new Menu().returnMenuListInString();
+    String menu = new Menu().printMainMenu();
     Basket basket = new Basket();
     int productId;
     int productListSize = listOfProducts.size() - 1;
