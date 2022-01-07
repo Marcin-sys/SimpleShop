@@ -18,8 +18,7 @@ public class ShopManager {
 
     public void shopManagerMenu() {
         int choiceEntry = -1;
-        try {
-            Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
             System.out.println(menu);
             do {
                 choiceEntry = getValidIntInput(1,6,sc); //min and max case
