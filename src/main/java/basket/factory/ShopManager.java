@@ -1,6 +1,7 @@
 package basket.factory;
 
 import basket.Basket;
+import jdk.swing.interop.SwingInterOpUtils;
 import menu.Menu;
 import products.ProductList;
 import products.Product;
@@ -53,7 +54,8 @@ public class ShopManager {
                     case 6:  //End shopping
                         break;
                     default:
-                        System.out.println("You chose bad number, must be value between 1 and 6.");
+                        System.out.println("You chose bad number, " +
+                                "must be value between 1 and 6.");
                 }
             } while (choiceEntry != 6);
         } catch (Exception e) {
@@ -65,10 +67,12 @@ public class ShopManager {
         Integer result = null;
         do {
             if (result != null) {
-                System.out.println("Invalid value, must be an integer value between " + min + " and " + max);
+                System.out.println("Invalid value, must be an integer value between "
+                        + min + " and " + max);
             }
             while (!scanner.hasNextInt()) {
-                System.out.println("Invalid value, must be an integer value between " + min + " and " + max);
+                System.out.println("Invalid value, must be an integer value between "
+                        + min + " and " + max);
                 scanner.next();
             }
             result = scanner.nextInt();
