@@ -21,7 +21,7 @@ public class ShopManager {
         try (Scanner sc = new Scanner(System.in)) {
             System.out.println(menu);
             do {
-                choiceEntry = getValidIntInput(1,6,sc); //min and max case
+                choiceEntry = getValidIntInput(1, 6, sc); //min and max case
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
                         for (Product product : listOfProducts)
@@ -61,7 +61,7 @@ public class ShopManager {
         }
     }
 
-    private int getValidIntInput(int min, int max, Scanner scanner) {
+    public int getValidIntInput(int min, int max, Scanner scanner) {
         Integer result = null;
         do {
             if (result != null) {
