@@ -1,16 +1,18 @@
 package basket;
 
 
-import products.ProductList;
+import products.ProductListProvider;
 import products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Basket {
 
     List<Product> basketList = new ArrayList<>();
-    List<Product> listOfProducts = new ProductList().makeProductList();
+    List<Product> listOfProducts = new ProductListProvider().makeProductList();
+//    Map<Integer,Product> mapOfProducts  = new
 
     public void addNewItemToBasket(int idProduct) {
         basketList.add(listOfProducts.get(idProduct));
@@ -27,10 +29,8 @@ public class Basket {
     }
 
     public void payForBasket() {
-        int sumBasketPrice = 0;
-        for (Product product : basketList) {
-            sumBasketPrice += product.price();
-        }
+        double sumBasketPrice = basketList.stream().mapToDouble(Product::price).sum();
+
         System.out.println("Total price is: "
                 + sumBasketPrice + " PLN");
     }

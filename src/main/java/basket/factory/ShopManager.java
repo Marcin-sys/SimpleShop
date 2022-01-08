@@ -2,7 +2,7 @@ package basket.factory;
 
 import basket.Basket;
 import menu.Menu;
-import products.ProductList;
+import products.ProductListProvider;
 import products.Product;
 
 import java.util.List;
@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 
 public class ShopManager {
-    List<Product> listOfProducts = new ProductList().makeProductList();
-    String menu = new Menu().printMainMenu();
+    List<Product> listOfProducts = new ProductListProvider().makeProductList();
+    String menu = new Menu().mainMenuProvider();
     Basket basket = new Basket();
     int productId;
     int productListSize = listOfProducts.size() - 1;
