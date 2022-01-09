@@ -11,6 +11,7 @@ public class ProductListProvider {
         productList.add(new Product(1,"Apple",15));
         productList.add(new Product(2,"Banana",17));
         productList.add(new Product(3,"Orange",21));
+        productList.add(new Product(4,"Kiwi",7));
 
         return productList;
     }
