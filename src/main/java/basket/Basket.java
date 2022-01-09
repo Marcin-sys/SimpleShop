@@ -13,6 +13,14 @@ public class Basket {
     List<Product> basketList = new ArrayList<>();
     List<Product> listOfProducts = new ProductListProvider().makeProductList();
 //    Map<Integer,Product> mapOfProducts  = new
+    public void printAllProductsInShop() {
+        String menu = "";
+        for (Product product : listOfProducts)
+            System.out.println("ID " + product.id()
+                    + " name:" + product.name()
+                    + " price: " + product.price());
+        System.out.println(menu);
+    }
 
     public void addNewItemToBasket(int idProduct) {
         basketList.add(listOfProducts.get(idProduct));
