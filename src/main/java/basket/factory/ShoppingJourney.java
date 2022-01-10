@@ -3,9 +3,9 @@ package basket.factory;
 import basket.Basket;
 import menu.Menu;
 import products.Product;
-import products.ProductListProvider;
+import products.ProductMapProvider;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -15,11 +15,9 @@ public class ShoppingJourney {
     UserInputProvider input = new UserInputProvider();
 
     String menu = new Menu().mainMenuProvider();
-    List<Product> listOfProducts = new ProductListProvider().makeProductList();
-
-
+    Map<Integer,Product> productMap = new ProductMapProvider().makeProductMap();
     int productId;
-    int productListSize = listOfProducts.size() - 1;
+    int productListSize = productMap.size() -1 ;
 
     public void shopManagerMenu() {
         int choiceEntry = -1;

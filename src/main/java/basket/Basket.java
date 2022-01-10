@@ -1,7 +1,7 @@
 package basket;
 
 
-import products.ProductListProvider;
+import products.ProductMapProvider;
 import products.Product;
 
 import java.util.ArrayList;
@@ -11,23 +11,22 @@ import java.util.Map;
 public class Basket {
 
     List<Product> basketList = new ArrayList<>();
-    List<Product> listOfProducts = new ProductListProvider().makeProductList();
-//    Map<Integer,Product> mapOfProducts  = new
+    Map<Integer, Product> productMap =
+            new ProductMapProvider().makeProductMap();
+
     public void printAllProductsInShop() {
-        String menu = "";
-        for (Product product : listOfProducts)
-            System.out.println("ID " + product.id()
-                    + " name:" + product.name()
-                    + " price: " + product.price());
-        System.out.println(menu);
+        for (Map.Entry<Integer, Product> p : productMap.entrySet()) {
+            System.out.println(p.getKey() + " = "
+                    + p.getValue());
+        }
     }
 
     public void addNewItemToBasket(int idProduct) {
-        basketList.add(listOfProducts.get(idProduct));
+        basketList.add(productMap.get(idProduct));
     }
 
     public void removeProductFromBasket(int idProduct) {
-        basketList.remove(listOfProducts.get(idProduct));
+        basketList.remove(productMap.get(idProduct));
     }
 
     public void showWhatInsideBasket() {
