@@ -1,49 +1,36 @@
 package basket.factory;
 
-import basket.Basket;
-import menu.Menu;
-import products.Product;
-import products.ProductMapProvider;
+import menu.MenuProvider;
 
-import java.util.Map;
 import java.util.Scanner;
 
 
 public class ShoppingJourney {
     ShopService shopService = new ShopService();
-    Basket basket = new Basket();
     UserInputProvider input = new UserInputProvider();
-
-    String menu = new Menu().mainMenuProvider();
-    Map<Integer,Product> productMap = new ProductMapProvider().makeProductMap();
-    int productId;
-    int productListSize = productMap.size() -1 ;
+    String menu = new MenuProvider().menu();
 
     public void shopManagerMenu() {
-        int choiceEntry = -1;
+        int choiceEntry;
         try (Scanner sc = new Scanner(System.in)) {
             do {
                 System.out.println(menu); //+
-                choiceEntry = input.getValidIntInput(1, 6, sc); //min and max case
+                choiceEntry = input.getValidIntInput(1, 6, sc);//min and max case
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
-                        basket.printAllProductsInShop();
+                        shopService.printAllProductsInShop();
                         break;
                     case 2:  //Add new product to basket
-                        System.out.println("Choose product id to be added to basket");
-                        productId = input.getValidIntInput(0, productListSize, sc);
-                        basket = shopService.addNewProductToBasket(basket, productId);
+                        shopService.addNewProductToBasket(sc);
                         break;
-                    case 3: //Remove product from basket
-                        System.out.println("Choose product id to be removed from basket");
-                        productId = input.getValidIntInput(0, productListSize, sc);
-                        basket = shopService.removeProductFromBasket(basket, productId);
+                    case 3: //Remove product from basket ;
+                        shopService.removeProductFromBasket(sc);
                         break;
                     case 4: //Check what is inside basket
-                        basket.showWhatInsideBasket();
+                        shopService.showWhatInsideBasket();
                         break;
                     case 5: // Pay for all product inside basket
-                        basket.payForBasket();
+                        shopService.payForBasket();
                         break;
                     case 6:  //End shopping
                         break;

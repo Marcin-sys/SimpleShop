@@ -3,9 +3,8 @@ package products;
 
 import java.util.*;
 
-public class ProductMapProvider {
+public class  ProductMapProvider {
     public Map<Integer, Product> makeProductMap() {
-
         Map<Integer, Product> productHashMap = new HashMap<>();
         productHashMap.put(0, new Product(45, "Pear", 12));
         productHashMap.put(1, new Product(68, "Apple", 15));
