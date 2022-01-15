@@ -7,11 +7,7 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ShopManagerTest {
-
-    @Test
-    void shopManagerMenu() {
-    }
+class UserInputProviderTest {
 
     @Test
     void getValidIntInput() {
@@ -22,6 +18,6 @@ class ShopManagerTest {
         System.setIn(in);
         Scanner scanner = new Scanner(System.in);
         Integer expected = 4;
-        assertEquals(expected, new ShopManager().getValidIntInput(min, max, scanner));
+        assertEquals(expected, new UserInputProvider().getValidIntInput(min, max, scanner));
     }
 }

@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class ShopService {
     Map<Integer, Product> productHashMap =
             new ProductMapProvider().makeProductMap();
-    int productId;
-    int productListSize = productHashMap.size() - 1;
+    private int productId;
+    private final int productListSize = productHashMap.size() - 1;
     UserInputProvider input = new UserInputProvider();
     List<Product> basketList = new ArrayList<>();
 

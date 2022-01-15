@@ -1,6 +1,7 @@
 package basket.factory;
 
 import menu.MenuProvider;
+import products.Product;
 
 import java.util.Scanner;
 
@@ -15,7 +16,9 @@ public class ShoppingJourney {
         try (Scanner sc = new Scanner(System.in)) {
             do {
                 System.out.println(menu); //+
-                choiceEntry = input.getValidIntInput(1, 6, sc);//min and max case
+                choiceEntry = 1;
+//                        input.getValidIntInput(1, 6, sc);//min and max case
+
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
                         shopService.printAllProductsInShop();
