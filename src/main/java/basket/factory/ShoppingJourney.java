@@ -1,7 +1,6 @@
 package basket.factory;
 
 import menu.MenuProvider;
-import products.Product;
 
 import java.util.Scanner;
 
@@ -11,13 +10,19 @@ public class ShoppingJourney {
     UserInputProvider input = new UserInputProvider();
     String menu = new MenuProvider().menu();
 
+
+    public ShoppingJourney(ShopService shopService, UserInputProvider input) {
+        this.shopService = shopService;
+        this.input = input;
+    }
+    public ShoppingJourney (){}
+
     public void shopManagerMenu() {
         int choiceEntry;
         try (Scanner sc = new Scanner(System.in)) {
             do {
                 System.out.println(menu); //+
-                choiceEntry = 1;
-//                        input.getValidIntInput(1, 6, sc);//min and max case
+                choiceEntry = input.getValidIntInput(1, 6, sc);//min and max case
 
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
@@ -38,7 +43,7 @@ public class ShoppingJourney {
                     case 6:  //End shopping
                         break;
                     default:
-                        System.out.println("You chose bad number, " +
+                        System.out.println(" You chose bad number, " +
                                 "must be value between 1 and 6.");
                 }
             } while (choiceEntry != 6);

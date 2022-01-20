@@ -3,24 +3,28 @@ package basket.factory;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.io.ByteArrayInputStream;
-import java.util.Scanner;
+
+import static org.mockito.ArgumentMatchers.eq;
 
 
 class ShoppingJourneyTest {
 
     @Test
-    void shopManagerMenu() {
+    void shopManagerMenuTesT() {
+        int min = 1;
+        int max = 6;
 
         ShopService shopService = Mockito.mock(ShopService.class);
+        UserInputProvider input = Mockito.mock(UserInputProvider.class);
 
-        String data = "1";
-        ByteArrayInputStream in = new ByteArrayInputStream(data.getBytes());
-        System.setIn(in);
+        Mockito.when(input.getValidIntInput(eq(min),
+                        eq(max),Mockito.any()))
+                .thenReturn(1,6);
 
-        ShoppingJourney shop = new ShoppingJourney();
-        shop.shopManagerMenu();
-        Mockito.doNothing().when(shopService).printAllProductsInShop();
-//        Mockito.verify(shopService).printAllProductsInShop();
+        ShoppingJourney shoppingJourney = new ShoppingJourney(shopService, input);
+
+        shoppingJourney.shopManagerMenu();
+
+        Mockito.verify(shopService).printAllProductsInShop();
     }
 }
