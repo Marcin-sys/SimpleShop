@@ -9,14 +9,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ShopService {
-    public ShopService(){}
-    public ShopService(UserInputProvider input){
-        this.input = input;
-    }
-
     Map<Integer, Product> productHashMap =
             new ProductMapProvider().makeProductMap();
-//    SystemPrinter systemPrinter;
     private int productId;
     private final int productListSize = productHashMap.size() - 1;
     UserInputProvider input = new UserInputProvider();
@@ -33,7 +27,6 @@ public class ShopService {
         System.out.println("Choose product number to be added to basket");
         productId = input.getValidIntInput(0, productListSize, sc);
         basketList.add(productHashMap.get(productId));
-
     }
 
     public void removeProductFromBasket(Scanner sc) {
@@ -44,8 +37,6 @@ public class ShopService {
 
     public void showWhatInsideBasket() {
         for (Product product : basketList) {
-//            String text = product.name();
-//            systemPrinter.PrintString(text);
             System.out.println(product.name());
         }
     }

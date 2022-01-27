@@ -26,7 +26,6 @@ class ShoppingJourneyTest {
         ShoppingJourney shoppingJourney = new ShoppingJourney(shopService, input);
 
         shoppingJourney.shopManagerMenu();
-
         if (number==1) {
             Mockito.verify(shopService).printAllProductsInShop();
         }else if (number==2){
