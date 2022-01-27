@@ -61,15 +61,15 @@ class ShopServiceTest {
 
     @Test
     void showWhatInsideBasket() {
-        SystemPrinter printer = Mockito.mock(SystemPrinter.class);
-        String expectedResult ="Banana";
+        int min = 0;
+        int max = productHashMap.size() - 1;
+        UserInputProvider input = Mockito.mock(UserInputProvider.class);
 
-        ShopService shopService = new ShopService(printer);
+        Mockito.when(input.getValidIntInput(eq(min),
+                eq(max), Mockito.any())).thenReturn(2);
 
-        shopService.basketList.add(productHashMap.get(2));
         shopService.showWhatInsideBasket();
-
-        Mockito.verify(printer).printString(expectedResult);
+//        assertEquals("");
     }
 
     @Test

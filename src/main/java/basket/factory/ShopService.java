@@ -13,18 +13,14 @@ public class ShopService {
     public ShopService(UserInputProvider input){
         this.input = input;
     }
-    public ShopService(SystemPrinter systemPrinter) {
-        this.systemPrinter = systemPrinter;
-    }
-    SystemPrinter systemPrinter = new TextPrinter();
+
     Map<Integer, Product> productHashMap =
             new ProductMapProvider().makeProductMap();
-    UserInputProvider input = new UserInputProvider();
-    List<Product> basketList = new ArrayList<>();
-
+//    SystemPrinter systemPrinter;
     private int productId;
     private final int productListSize = productHashMap.size() - 1;
-
+    UserInputProvider input = new UserInputProvider();
+    List<Product> basketList = new ArrayList<>();
 
     public void printAllProductsInShop() {
         for (Map.Entry<Integer, Product> p : productHashMap.entrySet()) {
@@ -48,7 +44,9 @@ public class ShopService {
 
     public void showWhatInsideBasket() {
         for (Product product : basketList) {
-            systemPrinter.printString(product.name());
+//            String text = product.name();
+//            systemPrinter.PrintString(text);
+            System.out.println(product.name());
         }
     }
 
