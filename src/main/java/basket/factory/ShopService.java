@@ -32,7 +32,7 @@ public class ShopService {
 
     public void printAllProductsInShop() {
         for (Map.Entry<Integer, Product> p : productHashMap.entrySet()) {
-            systemPrinter.printString(p.getKey() + " = "
+            System.out.println(p.getKey() + " = "
                     + p.getValue());
         }
     }

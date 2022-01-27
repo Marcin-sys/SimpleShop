@@ -27,18 +27,12 @@ class ShopServiceTest {
         testList.basketList.add(productHashMap.get(2));
     }
 
-    @Test
-    void printAllProductsInShop() {
-        SystemPrinter printer = Mockito.mock(SystemPrinter.class);
-        String expectedResult = "0 = Product[id=45, name=Pear, price=12.0]";
-        ShopService shopService = new ShopService(printer);
-
-        shopService.basketList.add(productHashMap.get(2));
-        shopService.printAllProductsInShop();
-
-        Mockito.verify(printer).printString(expectedResult);
-
-    }
+//    @Test
+//    void printAllProductsInShop() {
+//            ShopService shopService = Mockito.mock(ShopService.class);
+//            shopService.printAllProductsInShop();
+//
+//    }
 
     @Test
     void addNewProductToBasket() {
