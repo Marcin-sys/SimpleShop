@@ -22,6 +22,7 @@ class ShopServiceTest {
     UserInputProvider input = Mockito.mock(UserInputProvider.class);
     ShopService shopService = new ShopService(input);
 
+
     @BeforeEach
     public void init() {
         testList.basketList.add(productHashMap.get(2));
