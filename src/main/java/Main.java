@@ -1,6 +1,5 @@
 import basket.factory.ShoppingJourney;
 
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome");
