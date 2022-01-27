@@ -21,9 +21,8 @@ class ShopServiceTest {
     int min = 0;
     UserInputProvider input = Mockito.mock(UserInputProvider.class);
     ShopService shopService = new ShopService(input);
-
     @BeforeEach
-    public void init() {
+    public void init(){
         testList.basketList.add(productHashMap.get(2));
     }
 
@@ -36,11 +35,11 @@ class ShopServiceTest {
 
     @Test
     void addNewProductToBasket() {
-        try (Scanner sc = new Scanner(System.in)) {
+        try (Scanner sc = new Scanner(System.in)){
             Mockito.when(input.getValidIntInput(eq(min),
                     eq(max), Mockito.any())).thenReturn(2);
             shopService.addNewProductToBasket(sc);
-            assertEquals(testList.basketList, shopService.basketList);
+            assertEquals(testList.basketList,shopService.basketList);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,13 +47,13 @@ class ShopServiceTest {
 
     @Test
     void removeProductFromBasket() {
-        try (Scanner sc = new Scanner(System.in)) {
+        try (Scanner sc = new Scanner(System.in)){
             Mockito.when(input.getValidIntInput(eq(min),
-                    eq(max), Mockito.any())).thenReturn(2);
+                eq(max), Mockito.any())).thenReturn(2);
             shopService.basketList.add(productHashMap.get(2));
             shopService.basketList.add(productHashMap.get(2));
             shopService.removeProductFromBasket(sc);
-            assertEquals(testList.basketList, shopService.basketList);
+            assertEquals(testList.basketList,shopService.basketList);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,7 +62,7 @@ class ShopServiceTest {
     @Test
     void showWhatInsideBasket() {
         SystemPrinter printer = Mockito.mock(SystemPrinter.class);
-        String expectedResult = "Banana";
+        String expectedResult ="Banana";
 
         ShopService shopService = new ShopService(printer);
 
@@ -75,14 +74,5 @@ class ShopServiceTest {
 
     @Test
     void payForBasket() {
-        SystemPrinter printer = Mockito.mock(SystemPrinter.class);
-        String expectedResult = "Total price is: 17.0 PLN";
-
-        ShopService shopService = new ShopService(printer);
-
-        shopService.basketList.add(productHashMap.get(2));
-        shopService.payForBasket();
-
-        Mockito.verify(printer).printString(expectedResult);
     }
 }

@@ -9,17 +9,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ShopService {
-    public ShopService() {
-    }
-
-    public ShopService(UserInputProvider input) {
+    public ShopService(){}
+    public ShopService(UserInputProvider input){
         this.input = input;
     }
-
     public ShopService(SystemPrinter systemPrinter) {
         this.systemPrinter = systemPrinter;
     }
-
     SystemPrinter systemPrinter = new TextPrinter();
     Map<Integer, Product> productHashMap =
             new ProductMapProvider().makeProductMap();
@@ -58,7 +54,8 @@ public class ShopService {
 
     public void payForBasket() {
         double sumBasketPrice = basketList.stream().mapToDouble(Product::price).sum();
-        systemPrinter.printString("Total price is: "
+
+        System.out.println("Total price is: "
                 + sumBasketPrice + " PLN");
     }
 }
