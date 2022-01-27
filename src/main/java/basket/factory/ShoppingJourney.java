@@ -6,16 +6,9 @@ import java.util.Scanner;
 
 
 public class ShoppingJourney {
-    private ShopService shopService = new ShopService();
-    private UserInputProvider input = new UserInputProvider();
-    private final String menu = new MenuProvider().menu();
-
-
-    public ShoppingJourney(ShopService shopService, UserInputProvider input) {
-        this.shopService = shopService;
-        this.input = input;
-    }
-    public ShoppingJourney (){}
+    ShopService shopService = new ShopService();
+    UserInputProvider input = new UserInputProvider();
+    String menu = new MenuProvider().menu();
 
     public void shopManagerMenu() {
         int choiceEntry;
@@ -23,7 +16,6 @@ public class ShoppingJourney {
             do {
                 System.out.println(menu); //+
                 choiceEntry = input.getValidIntInput(1, 6, sc);//min and max case
-
                 switch (choiceEntry) {
                     case 1:  //1. Check all product's
                         shopService.printAllProductsInShop();
@@ -43,7 +35,7 @@ public class ShoppingJourney {
                     case 6:  //End shopping
                         break;
                     default:
-                        System.out.println(" You chose bad number, " +
+                        System.out.println("You chose bad number, " +
                                 "must be value between 1 and 6.");
                 }
             } while (choiceEntry != 6);
