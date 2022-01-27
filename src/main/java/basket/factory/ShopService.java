@@ -24,13 +24,13 @@ public class ShopService {
     }
 
     public void addNewProductToBasket(Scanner sc) {
-        System.out.println("Choose product number to be added to basket");
+        System.out.println("Choose product id to be added to basket");
         productId = input.getValidIntInput(0, productListSize, sc);
         basketList.add(productHashMap.get(productId));
     }
 
     public void removeProductFromBasket(Scanner sc) {
-        System.out.println("Choose product number  to be removed from basket");
+        System.out.println("Choose product id to be removed from basket");
         productId = input.getValidIntInput(0, productListSize, sc);
         basketList.remove(productHashMap.get(productId));
     }
