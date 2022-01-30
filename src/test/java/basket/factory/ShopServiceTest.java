@@ -55,8 +55,8 @@ class ShopServiceTest {
     void removeProductFromBasket() {
         try (Scanner sc = new Scanner(System.in)) {
             Mockito.when(input.getValidIntInput(eq(min),
-                    eq(max), Mockito.any())).thenReturn(2);
-            shopService.basketList.add(productHashMap.get(2));
+                    eq(max), Mockito.any())).thenReturn(1);
+            shopService.basketList.add(productHashMap.get(1));
             shopService.basketList.add(productHashMap.get(2));
             shopService.removeProductFromBasket(sc);
             assertEquals(testList.basketList, shopService.basketList);
