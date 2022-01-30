@@ -33,7 +33,6 @@ class ShopServiceTest {
         String expectedResult = "0 = Product[id=45, name=Pear, price=12.0]";
         ShopService shopService = new ShopService(printer);
 
-        shopService.basketList.add(productHashMap.get(2));
         shopService.printAllProductsInShop();
 
         Mockito.verify(printer).printString(expectedResult);

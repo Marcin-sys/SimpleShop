@@ -27,7 +27,7 @@ public class ShopService {
     List<Product> basketList = new ArrayList<>();
 
     private int productId;
-    private final int productListSize = productHashMap.size() - 1;
+    private final int productMapSize = productHashMap.size();
 
 
     public void printAllProductsInShop() {
@@ -39,14 +39,14 @@ public class ShopService {
 
     public void addNewProductToBasket(Scanner sc) {
         System.out.println("Choose product number to be added to basket");
-        productId = input.getValidIntInput(0, productListSize, sc);
+        productId = input.getValidIntInput(0, productMapSize - 1, sc);
         basketList.add(productHashMap.get(productId));
 
     }
 
     public void removeProductFromBasket(Scanner sc) {
         System.out.println("Choose product number  to be removed from basket");
-        productId = input.getValidIntInput(0, productListSize, sc);
+        productId = input.getValidIntInput(0, productMapSize - 1, sc);
         basketList.remove(productHashMap.get(productId));
     }
 
