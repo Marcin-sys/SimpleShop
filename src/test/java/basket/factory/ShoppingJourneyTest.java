@@ -18,7 +18,6 @@ class ShoppingJourneyTest {
         ShopService shopService = Mockito.mock(ShopService.class);
         UserInputProvider input = Mockito.mock(UserInputProvider.class);
 
-
         Mockito.when(input.getValidIntInput(eq(min),
                             eq(max), Mockito.any()))
                     .thenReturn(number, 6);

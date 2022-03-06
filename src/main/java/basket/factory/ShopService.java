@@ -9,21 +9,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ShopService {
-    public ShopService() {
-    }
-
-    public ShopService(UserInputProvider input) {
+    public ShopService(UserInputProvider input,SystemPrinter systemPrinter ) {
         this.input = input;
-    }
-
-    public ShopService(SystemPrinter systemPrinter) {
         this.systemPrinter = systemPrinter;
     }
 
-    SystemPrinter systemPrinter = new TextPrinter();
-    Map<Integer, Product> productHashMap =
-            new ProductMapProvider().makeProductMap();
-    UserInputProvider input = new UserInputProvider();
+    SystemPrinter systemPrinter;
+    UserInputProvider input;
+    Map<Integer, Product> productHashMap = new ProductMapProvider().makeProductMap();
     List<Product> basketList = new ArrayList<>();
 
     private int productId;

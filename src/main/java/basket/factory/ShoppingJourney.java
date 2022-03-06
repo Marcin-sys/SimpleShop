@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 
 public class ShoppingJourney {
-    private ShopService shopService = new ShopService();
     private UserInputProvider input = new UserInputProvider();
     private final String menu = new MenuProvider().menu();
+    private final SystemPrinter systemPrinter = new TextPrinter();
+    private ShopService shopService = new ShopService(input, systemPrinter);
 
 
     public ShoppingJourney(ShopService shopService, UserInputProvider input) {

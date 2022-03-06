@@ -16,12 +16,12 @@ class ShopServiceTest {
 
     Map<Integer, Product> productHashMap =
             new ProductMapProvider().makeProductMap();
-    ShopService testList = new ShopService();
     int max = productHashMap.size() - 1;
     int min = 0;
     UserInputProvider input = Mockito.mock(UserInputProvider.class);
-    ShopService shopService = new ShopService(input);
-
+    SystemPrinter printer = Mockito.mock(SystemPrinter.class);
+    ShopService shopService = new ShopService(input,printer);
+    ShopService testList = new ShopService(input,printer);
     @BeforeEach
     public void init() {
         testList.basketList.add(productHashMap.get(2));
@@ -29,9 +29,8 @@ class ShopServiceTest {
 
     @Test
     void printAllProductsInShop() {
-        SystemPrinter printer = Mockito.mock(SystemPrinter.class);
         String expectedResult = "0 = Product[id=45, name=Pear, price=12.0]";
-        ShopService shopService = new ShopService(printer);
+        ShopService shopService = new ShopService(input,printer);
 
         shopService.printAllProductsInShop();
 
@@ -67,10 +66,9 @@ class ShopServiceTest {
 
     @Test
     void showWhatInsideBasket() {
-        SystemPrinter printer = Mockito.mock(SystemPrinter.class);
         String expectedResult = "Banana";
 
-        ShopService shopService = new ShopService(printer);
+        ShopService shopService = new ShopService(input,printer);
 
         shopService.basketList.add(productHashMap.get(2));
         shopService.showWhatInsideBasket();
@@ -80,10 +78,9 @@ class ShopServiceTest {
 
     @Test
     void payForBasket() {
-        SystemPrinter printer = Mockito.mock(SystemPrinter.class);
         String expectedResult = "Total price is: 17.0 PLN";
 
-        ShopService shopService = new ShopService(printer);
+        ShopService shopService = new ShopService(input,printer);
 
         shopService.basketList.add(productHashMap.get(2));
         shopService.payForBasket();
