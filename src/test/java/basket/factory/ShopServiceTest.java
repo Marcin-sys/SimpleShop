@@ -20,11 +20,12 @@ class ShopServiceTest {
     int min = 0;
     UserInputProvider input = Mockito.mock(UserInputProvider.class);
     SystemPrinter printer = Mockito.mock(SystemPrinter.class);
-    ShopService shopService = new ShopService(input,printer);
-    ShopService testList = new ShopService(input,printer);
+    ShopService basket1 = new ShopService(input,printer);
+    ShopService basket2 = new ShopService(input,printer);
+
     @BeforeEach
     public void init() {
-        testList.basketList.add(productHashMap.get(2));
+        basket2.basketList.add(productHashMap.get(2));
     }
 
     @Test
@@ -43,8 +44,8 @@ class ShopServiceTest {
         try (Scanner sc = new Scanner(System.in)) {
             Mockito.when(input.getValidIntInput(eq(min),
                     eq(max), Mockito.any())).thenReturn(2);
-            shopService.addNewProductToBasket(sc);
-            assertEquals(testList.basketList, shopService.basketList);
+            basket1.addNewProductToBasket(sc);
+            assertEquals(basket2.basketList, basket1.basketList);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,10 +56,10 @@ class ShopServiceTest {
         try (Scanner sc = new Scanner(System.in)) {
             Mockito.when(input.getValidIntInput(eq(min),
                     eq(max), Mockito.any())).thenReturn(1);
-            shopService.basketList.add(productHashMap.get(1));
-            shopService.basketList.add(productHashMap.get(2));
-            shopService.removeProductFromBasket(sc);
-            assertEquals(testList.basketList, shopService.basketList);
+            basket1.basketList.add(productHashMap.get(1));
+            basket1.basketList.add(productHashMap.get(2));
+            basket1.removeProductFromBasket(sc);
+            assertEquals(basket2.basketList, basket1.basketList);
         } catch (Exception e) {
             e.printStackTrace();
         }
